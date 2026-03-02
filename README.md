@@ -1,2 +1,4 @@
-# practica_JavaScript
-Curso para aprender paso a paso JavaScript. Considera ejercicios 
+# Repaso de conceptos y tecnologias de programación
+- JavaScripts
+- TypeScripts
+
