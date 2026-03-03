@@ -69,31 +69,59 @@ Los metodos se pueden redefinir en las clases hijas. Un metodo puede tener difer
 '''
 
 ####### EJEMPLO DE POO: CLASES Y OBJETOS #######
+####### ABSTRACCIÓN #######
 
-class Persona:
-    """
-    Clase: Molde para crear objetos que encapsula datos y comportamientos.
-    """
-    def __init__(self, nombre, edad):
-        # Atributos (Estado)
+class Personaje:
+    nombre = 'default'
+    fuerza = 0
+    magia = 0
+    velocidad = 0
+    vida = 0
+    mana = 0
+    
+mi_personaje = Personaje()
+#Se consulta directamente a la clase
+print('el nombre del jugador es', Personaje.nombre) 
+
+#Se consulta directamente al objeto
+print('el mana del jugador es', mi_personaje.mana )
+
+#Redifinir propiedades del objeto
+mi_personaje.nombre = 'Goku'
+mi_personaje.fuerza = 9999
+
+print('el nombre del legendario super sayan es', mi_personaje.nombre, 'y su fuerza es de', mi_personaje.fuerza)
+
+####### CONSTRUCTOR #######
+
+class character:
+
+    def __init__(self, nombre, fuerza, magia, velocidad, vida, mana):
         self.nombre = nombre
-        self._edad = edad  # Encapsulamiento (Convención de protegido)
+        self.fuerza = fuerza
+        self.magia = magia
+        self.velocidad = velocidad
+        self.vida = vida
+        self.mana = mana
 
-    def saludar(self):
-        # Método (Comportamiento)
-        return f"Hola, mi nombre es {self.nombre}"
+####### METODOS ESTADO DEL OBJETO #######
 
-class Estudiante(Persona):
-    """
-    Herencia: Permite que una clase hija adquiera atributos y métodos de una clase padre.
-    """
-    def __init__(self, nombre, edad, carrera):
-        super().__init__(nombre, edad)
-        self.carrera = carrera
+    def atributos(self):
+        print('------------------------------------------------')
+        print('el nombre del jugador es', self.nombre)
+        print('la fuerza del jugador es', self.fuerza)
+        print('la magia del jugador es', self.magia)
+        print('la velocidad del jugador es', self.velocidad)
+        print('la vida del jugador es', self.vida)
+        print('el mana del jugador es', self.mana)
+        print('------------------------------------------------')
 
-    def saludar(self):
-        # Polimorfismo: Capacidad de una subclase para proporcionar una implementación específica.
-        return f"Hola, soy estudiante de {self.carrera} y me llamo {self.nombre}"
+my_character = character('Vegeta', 9999, 0, 9999, 9999, 0)      
+my_character.atributos()
+
+#CREAR METODOS QUE:
+#
+
 
 
 
