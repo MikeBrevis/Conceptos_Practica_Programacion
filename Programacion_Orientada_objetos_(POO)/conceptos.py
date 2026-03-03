@@ -116,15 +116,74 @@ class character:
         print('el mana del jugador es', self.mana)
         print('------------------------------------------------')
 
-my_character = character('Vegeta', 9999, 0, 9999, 9999, 0)      
+####### METODOS SUBIR NIVEL #######
+
+    def subir_nivel(self, fuerza, vida, mana):
+        self.fuerza = self.fuerza + fuerza
+        self.vida = self.vida + vida
+        self.mana = self.mana + mana
+
+####### METODOS VIVO/MUERTO #######
+
+    def vivo(self):
+        return self.vida > 0
+
+    def muerto(self):
+        self.vida = 0
+        print('el personaje ha muerto')
+
+####### METODOS CALCULO DE DAÑO #######
+
+    def daño(self, enemigo):
+        return self.fuerza
+
+####### METODOS ATACAR #######
+
+    def atacar(self, enemigo):
+        daño = self.daño(enemigo)
+        enemigo.vida = enemigo.vida - daño
+        print('el personaje', self.nombre, 'ha atacado a', enemigo.nombre, 'y le ha hecho', daño, 'de daño')
+
+        if enemigo.vivo():
+            print('La vida del enemigo es', enemigo.vida)
+        else:
+            enemigo.muerto()
+
+my_character = character('Vegeta', 500, 0, 0, 3000, 9999)      
+my_enemy = character('Nappa', 700, 0, 0, 1000, 9999)
 my_character.atributos()
+my_character.atacar(my_enemy)
+my_enemy.atributos()
 
-#CREAR METODOS QUE:
-#
+####### ENCAPSULACIÓN #######
 
+# En python no se consideran que los datos se encapsulen como tal
 
+####### HERENCIA #######
 
+class Guerrero(character):
+    
+    def __init__ (self, nombre, fuerza, magia, velocidad, vida, mana, espada):
+        super().__init__(nombre, fuerza, magia, velocidad, vida, mana)
+        self.espada = espada
 
+####### METODOS PARA CAMBIAR DE ARMA #######
 
+    def cambiar_arma(self):
+        opcion = int(input('elija el arma que desea usar: 1. Espada, 2. Hacha, 3. Arco'))
+        if opcion == 1:
+            self.espada = 8
+        elif opcion == 2:
+            self.espada = 6
+        elif opcion == 3:
+            self.espada = 3
+        else:
+            print('opcion no valida')
 
+guts = Guerrero('Guts', 100, 0, 80, 200, 0 ,5)
+guts.cambiar_arma()
+guts.atributos()
+print(guts.espada)
+
+####### POLIMORFISMO #######
 
