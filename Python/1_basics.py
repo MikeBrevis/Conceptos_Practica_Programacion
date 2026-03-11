@@ -36,12 +36,35 @@ print(4 * 2 - 1 + (7 + 1) / (3 + 1)) # 9.0
 '''
 firts program, this says hello and tell how old are you next year
 '''
-print('hello wordl!')
-print('wha´s your name?')
-name = input()
-print('hello ' + name + ', how are you?')
-print('if you wanna know, your length´s name is ' + str(len(name)))
-print('what´s your age?')
-age = input()
-print('you will be ' + str(int(age) + 1) + ' next year' )
+# print('hello wordl!')
+# print('what´s your name?')
+# name = input('> ')
+# print('hello ' + name + ', how are you?')
+# print('if you wanna know, your length´s name is ' + str(len(name)))
+# print('what´s your age?')
+# age = input('> ')
+# print('you will be ' + str(int(age) + 1) + ' next year')
+
+'''
+Basic functions
+'''
+#str() = convert to string
+print(str(0))
+print(str(-3.14))
+#int() = convert to integer
+print(int('42'))
+print(int(-500.5))
+#float() = convert to float
+print(float('-3.14'))
+print(float(3))
+print(float(-3))
+
+#type() = show the type of the variable
+print(type(42))
+print(type(-3.14))
+print(type('hello'))
+print(type(True))
+
+#len() = show the length of the string
+print(len('hello'))
 
