@@ -33,3 +33,15 @@ print(5 ** 3) # exponentiation
 # example of math operations
 print(4 * 2 - 1 + (7 + 1) / (3 + 1)) # 9.0
 
+'''
+firts program, this says hello and tell how old are you next year
+'''
+print('hello wordl!')
+print('wha´s your name?')
+name = input()
+print('hello ' + name + ', how are you?')
+print('if you wanna know, your length´s name is ' + str(len(name)))
+print('what´s your age?')
+age = input()
+print('you will be ' + str(int(age) + 1) + ' next year' )
+
