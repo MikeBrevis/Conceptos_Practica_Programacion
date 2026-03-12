@@ -34,26 +34,16 @@ print(5 ** 3) # exponentiation
 print(4 * 2 - 1 + (7 + 1) / (3 + 1)) # 9.0
 
 '''
-firts program, this says hello and tell how old are you next year
-'''
-# print('hello wordl!')
-# print('what´s your name?')
-# name = input('> ')
-# print('hello ' + name + ', how are you?')
-# print('if you wanna know, your length´s name is ' + str(len(name)))
-# print('what´s your age?')
-# age = input('> ')
-# print('you will be ' + str(int(age) + 1) + ' next year')
-
-'''
 Basic functions
 '''
 #str() = convert to string
 print(str(0))
 print(str(-3.14))
+
 #int() = convert to integer
 print(int('42'))
 print(int(-500.5))
+
 #float() = convert to float
 print(float('-3.14'))
 print(float(3))
@@ -68,3 +58,45 @@ print(type(True))
 #len() = show the length of the string
 print(len('hello'))
 
+#bin() = convert to binary
+print(bin(8))
+
+#hex() = convert to hexadecimal
+print(hex(8))
+
+'''
+firts program, this says hello and tell how old are you next year
+'''
+# print('hello wordl!')
+# print('what´s your name?')
+# name = input('> ')
+# print('hello ' + name + ', how are you?')
+# print('if you wanna know, your length´s name is ' + str(len(name)))
+# print('what´s your age?')
+# age = input('> ')
+# print('you will be ' + str(int(age) + 1) + ' next year')
+
+'''
+Rectangle printer with five '0' height
+'''
+
+# width = input('enter the width of the rectangle: ')
+# int_width = int(width)
+
+# print(int_width * '0')
+# print(int_width * '0')
+# print(int_width * '0')
+# print(int_width * '0')
+# print(int_width * '0')
+
+'''
+Perimeter and Area Calculator
+'''
+width_rectangle = input('enter the width of the rectangle: ')
+height_rectangle = input('enter the width of the rectangle: ')
+
+int_width = int(width_rectangle)
+int_height = int(height_rectangle)
+
+print('area of the rectangle is ' + str(int_height * int_width) + ' m2')
+print('perimeter of the rectangle is ' + str((int_height * 2) + (int_width * 2)) + ' mts')
