@@ -100,3 +100,4 @@ int_height = int(height_rectangle)
 
 print('area of the rectangle is ' + str(int_height * int_width) + ' m2')
 print('perimeter of the rectangle is ' + str((int_height * 2) + (int_width * 2)) + ' mts')
+

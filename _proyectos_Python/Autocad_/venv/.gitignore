@@ -1,0 +1,5 @@
+# Ignorar todo el contenido de esta carpeta (el entorno virtual)
+*
+
+# No ignorar este propio archivo .gitignore (opcional, por si quieres subir la carpeta vacía)
+!.gitignore
