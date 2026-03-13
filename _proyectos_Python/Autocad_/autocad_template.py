@@ -62,12 +62,20 @@ def actualizar_cajetin(cliente_val, obra_val, vendedor_val, id_proyecto_val, sis
         # Ancho máximo permitido por la casilla del cajetín para que no roce los bordes
         MAX_WIDTH_SEGURO = 35.5
 
-        # 2. Iterar sobre TODOS los Layouts (Pestañas de presentación)
-        for layout in doc.Layouts:
-            # Ignorar la pestaña del Modelo si solo queremos las presentaciones
-            if layout.Name.upper() == "MODEL":
-                continue
-                
+        # 2. Preparar los Layouts (Pestañas de presentación)
+        layouts_validos = [layout for layout in doc.Layouts if layout.Name.upper() != "MODEL"]
+        
+        # Ordenar las pestañas según su aparición visual en AutoCAD de izquierda a derecha
+        try:
+            layouts_validos.sort(key=lambda x: x.TabOrder)
+        except:
+            pass # Si la versión del CAD no expone TabOrder, continuamos con el orden por defecto
+            
+        total_lam_str = str(len(layouts_validos))
+
+        for idx, layout in enumerate(layouts_validos):
+            numero_lam_str = str(idx + 1)
+            
             # Accedemos al Block asociado al Layout actual (su PaperSpace individual)
             layout_block = layout.Block
             
@@ -118,6 +126,10 @@ def actualizar_cajetin(cliente_val, obra_val, vendedor_val, id_proyecto_val, sis
                                     attr.TextString = sistema_val
                                 elif tag == "FECHA":
                                     attr.TextString = datetime.now().strftime("%d/%m/%Y")
+                                elif tag == "NUMERO_LAM":
+                                    attr.TextString = numero_lam_str
+                                elif tag == "TOTAL_LAM":
+                                    attr.TextString = total_lam_str
                                     
                             # Refrescar y actualizar el objeto en este Layout específico
                             entity.Update()
